@@ -1,0 +1,10 @@
+- op: add
+  path: /spec/template/spec/topologySpreadConstraints
+  value:
+    - matchLabelKeys:
+        - pod-template-hash
+      maxSkew: 1
+      minDomains: 1
+      nodeAffinityPolicy: Honor
+      topologyKey: topology.kubernetes.io/zone
+      whenUnsatisfiable: DoNotSchedule
